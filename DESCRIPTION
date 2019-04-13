@@ -46,7 +46,6 @@ Suggests:
     usethis
 VignetteBuilder: knitr
 Remotes: 
-    r-lib/rcmdcheck,
     ropenscilabs/travis
 ByteCompile: No
 Encoding: UTF-8
