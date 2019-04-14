@@ -32,6 +32,13 @@ prepare_all_stages <- function(stages = load_from_file()) {
 #'
 #' @export
 run_stage <- function(name, stages = load_from_file()) {
+
+  # check for duplicated steps
+  test_all = lapply(lapply(stages, function(x) x$steps), function(y) lapply(y, function(z) z$name))
+  dup = lapply(test_all, function(x) list(steps = as.list(duplicated(x))))
+
+  # How to subset `stages` with `dup` from here onwards?
+
   stage <- stages[[name]]
   if (!is.null(stage)) {
     stage$run_all()
