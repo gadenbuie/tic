@@ -80,6 +80,6 @@ dsl_get()
 }
 \seealso{
 Other macros: \code{\link{do_package_checks}},
-  \code{\link{do_pkgdown}}
+  \code{\link{do_pkgdown}}, \code{\link{do_style_pkg}}
 }
 \concept{macros}

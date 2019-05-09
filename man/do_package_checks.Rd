@@ -72,6 +72,6 @@ dsl_get()
 }
 \seealso{
 Other macros: \code{\link{do_bookdown}},
-  \code{\link{do_pkgdown}}
+  \code{\link{do_pkgdown}}, \code{\link{do_style_pkg}}
 }
 \concept{macros}
