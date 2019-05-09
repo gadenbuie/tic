@@ -13,8 +13,10 @@ NULL
 #' @description
 #' `do_style_pkg()` styles a R package using [styler::style_pkg()] package.
 #'
+#' @inheritParams step_style_pkg
 #' @inheritParams step_setup_push_deploy
 #' @inheritParams step_do_push_deploy
+#' @inheritParams step_install_pkg
 #' @param ... Passed on to [step_style_pkg()]
 #' @family macros
 #' @export
