@@ -43,8 +43,7 @@ SetupPushDeploy <- R6Class(
 
   public = list(
     initialize = function(path = ".", branch = NULL, orphan = FALSE,
-                          remote_url = NULL, checkout = TRUE) {
-
+                              remote_url = NULL, checkout = TRUE) {
       if (is.null(branch) && orphan) {
         stop("Cannot orphan the branch that has been used for the CI run.", call. = FALSE)
       }
@@ -124,27 +123,26 @@ SetupPushDeploy <- R6Class(
 
       if (!private$orphan) {
         message("Fetching from remote ", remote_name)
-        tryCatch(
-          {
-            remote_branch <- private$try_fetch()
-            if (!is.null(remote_branch)) {
-              message("Remote branch is ", remote_branch)
-              if (private$checkout) {
-                git2r::checkout(
-                  private$git$get_repo(),
-                  private$branch,
-                  create = TRUE,
-                  force = TRUE
-                )
-              }
+        tryCatch({
+          remote_branch <- private$try_fetch()
+          if (!is.null(remote_branch)) {
+            message("Remote branch is ", remote_branch)
+            if (private$checkout) {
+              git2r::checkout(
+                private$git$get_repo(),
+                private$branch,
+                create = TRUE,
+                force = TRUE
+              )
             }
-          },
-          error = function(e) {
-            message(
-              conditionMessage(e),
-              "\nCould not fetch branch, will attempt to create new"
-            )
           }
+        },
+        error = function(e) {
+          message(
+            conditionMessage(e),
+            "\nCould not fetch branch, will attempt to create new"
+          )
+        }
         )
       }
     },
@@ -330,9 +328,8 @@ PushDeploy <- R6Class(
 
   public = list(
     initialize = function(path = ".", branch = ci_get_branch(),
-                          remote_url = paste0("git@github.com:", ci_get_slug(), ".git"),
-                          commit_message = NULL, commit_paths = ".") {
-
+                              remote_url = paste0("git@github.com:", ci_get_slug(), ".git"),
+                              commit_message = NULL, commit_paths = ".") {
       orphan <- (path != ".")
 
       private$setup <- step_setup_push_deploy(
