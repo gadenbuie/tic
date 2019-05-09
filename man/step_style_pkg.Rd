@@ -2,30 +2,38 @@
 % Please edit documentation in R/steps-styler.R
 \name{step_style_pkg}
 \alias{step_style_pkg}
-\title{Step: Style package using the \link{styler} package}
+\title{Step: Style package using the \code{styler} package
+Styles a R package using \code{styler::style_pkg()}}
 \usage{
-step_style_pkg(...)
+step_style_pkg(..., pkg = ".", style = styler::tidyverse_style,
+  transformers = style(...), filetype = "R",
+  exclude_files = "R/RcppExports.R", include_roxygen_examples = TRUE)
 }
 \arguments{
-\item{...}{Arguments passed on to \code{styler::style_pkg}
-\describe{
-  \item{pkg}{Path to a (subdirectory of an) R package.}
-  \item{style}{A function that creates a style guide to use, by default
-\code{\link[=tidyverse_style]{tidyverse_style()}} (without the parentheses). Not used
+\item{...}{Ignored, used to enforce naming of arguments.}
+
+\item{pkg}{Path to package.}
+
+\item{style}{A function that creates a style guide to use, by default
+\code{tidyverse_style()} (without the parentheses). Not used
 further except to construct the argument \code{transformers}. See
-\code{\link[=style_guides]{style_guides()}} for details.}
-  \item{transformers}{A set of transformer functions. This argument is most
+\code{style_guides()} for details.}
+
+\item{transformers}{A set of transformer functions. This argument is most
 conveniently constructed via the \code{style} argument and \code{...}. See
 'Examples'.}
-  \item{filetype}{Vector of file extensions indicating which file types should
+
+\item{filetype}{Vector of file extensions indicating which file types should
 be styled. Case is ignored, and the \code{.} is optional, e.g. \code{c(".R", ".Rmd", ".Rnw")} or \code{c("r", "rmd", "rnw")}.}
-  \item{exclude_files}{Character vector with paths to files that should be
+
+\item{exclude_files}{Character vector with paths to files that should be
 excluded from styling.}
-  \item{include_roxygen_examples}{Whether or not to style code in roxygen
+
+\item{include_roxygen_examples}{Whether or not to style code in roxygen
 examples.}
-}}
 }
 \description{
+Step: Style package using the \code{styler} package
 Styles a R package using \code{styler::style_pkg()}
 }
 \seealso{
