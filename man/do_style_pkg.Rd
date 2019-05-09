@@ -54,7 +54,7 @@ Restrict the set of directories and/or files added to Git before deploying.
 Default: deploy all files.}
 }
 \description{
-\code{do_style_pkg()} styles a R package using \code{\link[styler:style_pkg]{styler::style_pkg()}} package.
+\code{do_style_pkg()} styles a R package using \code{styler::style_pkg()} package.
 
 \enumerate{
 \item \code{\link[=step_setup_ssh]{step_setup_ssh()}} in the \code{"before_deploy"} to setup the upcoming deployment (if \code{deploy} is set),

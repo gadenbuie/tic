@@ -26,7 +26,7 @@ examples.}
 }}
 }
 \description{
-Styles a R package using \code{\link[styler:style_pkg]{styler::style_pkg()}}
+Styles a R package using \code{styler::style_pkg()}
 }
 \seealso{
 Other steps: \code{\link{step_add_to_drat}},

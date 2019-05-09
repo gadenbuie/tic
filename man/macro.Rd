@@ -22,5 +22,5 @@ The \code{\link[=do_bookdown]{do_bookdown()}} macro adds the necessary steps for
 and deploying a \pkg{bookdown} book.
 
 The \code{\link[=do_style_pkg]{do_style_pkg()}} macro adds the necessary steps for styling
-a package via the \link{styler} package.
+a package via the \code{styler} package.
 }

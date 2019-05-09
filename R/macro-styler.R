@@ -1,7 +1,7 @@
 #' do_styler
 #'
 #' The [do_style_pkg()] macro adds the necessary steps for styling
-#' a package via the [styler] package.
+#' a package via the `styler` package.
 #'
 #' @include macro.R
 #' @name macro
@@ -11,7 +11,7 @@ NULL
 #' Style R package
 #'
 #' @description
-#' `do_style_pkg()` styles a R package using [styler::style_pkg()] package.
+#' `do_style_pkg()` styles a R package using `styler::style_pkg()` package.
 #'
 #' @inheritParams step_style_pkg
 #' @inheritParams step_setup_push_deploy

@@ -26,7 +26,7 @@ StylePkg = R6Class(
 
 #' Step: Style package using the [styler] package
 #'
-#' Styles a R package using [styler::style_pkg()]
+#' Styles a R package using `styler::style_pkg()`
 #'
 #' @inheritDotParams styler::style_pkg
 #' @family steps
