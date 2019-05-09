@@ -71,7 +71,13 @@ do_style_pkg <- function(...,
 
   #' 1. [step_style_pkg()] in the `"deploy"` stage, forwarding all `...` arguments.
   get_stage("deploy") %>%
-    add_step(step_style_pkg(!!!enquos(...)))
+    add_step(step_style_pkg(
+      style = !!enquo(style),
+      transformers = !!enquo(transformers),
+      filetype = !!enquo(filetype),
+      exclude_files = !!enquo(exclude_files),
+      include_roxygen_examples = !!enquo(include_roxygen_examples)
+    ))
 
   #' 1. [step_do_push_deploy()] in the `"deploy"` stage.
   if (isTRUE(deploy)) {
