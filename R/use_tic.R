@@ -134,10 +134,13 @@ detect_repo_type <- function() {
     return("package")
   }
 
-  if (!interactive()) return("unknown")
+  if (!interactive()) {
+    return("unknown")
+  }
 
   cli::cat_bullet("Unable to guess the repo type. Please choose the desired one from the menu.",
-    bullet = "warning")
+    bullet = "warning"
+  )
 
   choices <- c(
     blogdown = "Blogdown", bookdown = "Bookdown",

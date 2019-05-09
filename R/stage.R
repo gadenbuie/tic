@@ -101,23 +101,21 @@ TicStage <- R6Class(
 
       top <- environment()
 
-      tryCatch(
-        {
-          withCallingHandlers(
-            {
-              step$run()
-              TRUE
-            },
-            error = function(e) {
-              ci_cat_with_color(crayon::red(paste0("Error: ", conditionMessage(e))))
-              tb <- format_traceback(top)
-              ci_cat_with_color(crayon::yellow(tb))
-            }
-          )
+      tryCatch({
+        withCallingHandlers({
+          step$run()
+          TRUE
         },
         error = function(e) {
-          FALSE
+          ci_cat_with_color(crayon::red(paste0("Error: ", conditionMessage(e))))
+          tb <- format_traceback(top)
+          ci_cat_with_color(crayon::yellow(tb))
         }
+        )
+      },
+      error = function(e) {
+        FALSE
+      }
       )
     }
   )
