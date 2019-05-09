@@ -45,6 +45,7 @@ Suggests:
     openssl,
     rcmdcheck,
     rmarkdown,
+    styler,
     testthat,
     travis (>= 0.2.11.9001),
     usethis

@@ -24,9 +24,9 @@ StylePkg = R6Class(
   )
 )
 
-#' Step: Build pkgdown documentation
+#' Step: Style package using the [styler] package
 #'
-#' Builds package documentation with the \pkg{pkgdown} package.
+#' Styles a R package using [styler::style_pkg()]
 #'
 #' @inheritDotParams styler::style_pkg
 #' @family steps

@@ -21,7 +21,7 @@ NULL
 #' @examples
 #' dsl_init()
 #'
-#' do_styler()
+#' do_style_pkg()
 #'
 #' dsl_get()
 do_style_pkg <- function(...,
@@ -67,7 +67,7 @@ do_style_pkg <- function(...,
       ))
   }
 
-  #' 1. [step_build_pkgdown()] in the `"deploy"` stage, forwarding all `...` arguments.
+  #' 1. [step_style_pkg()] in the `"deploy"` stage, forwarding all `...` arguments.
   get_stage("deploy") %>%
     add_step(step_style_pkg(!!!enquos(...)))
 

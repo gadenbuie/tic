@@ -59,14 +59,14 @@ Default: deploy all files.}
 \enumerate{
 \item \code{\link[=step_setup_ssh]{step_setup_ssh()}} in the \code{"before_deploy"} to setup the upcoming deployment (if \code{deploy} is set),
 \item \code{\link[=step_setup_push_deploy]{step_setup_push_deploy()}} in the \code{"before_deploy"} stage (if \code{deploy} is set),
-\item \code{\link[=step_build_pkgdown]{step_build_pkgdown()}} in the \code{"deploy"} stage, forwarding all \code{...} arguments.
+\item \code{\link[=step_style_pkg]{step_style_pkg()}} in the \code{"deploy"} stage, forwarding all \code{...} arguments.
 \item \code{\link[=step_do_push_deploy]{step_do_push_deploy()}} in the \code{"deploy"} stage.
 }
 }
 \examples{
 dsl_init()
 
-do_styler()
+do_style_pkg()
 
 dsl_get()
 }

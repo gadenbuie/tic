@@ -2,7 +2,7 @@
 % Please edit documentation in R/steps-styler.R
 \name{step_style_pkg}
 \alias{step_style_pkg}
-\title{Step: Build pkgdown documentation}
+\title{Step: Style package using the \link{styler} package}
 \usage{
 step_style_pkg(...)
 }
@@ -26,7 +26,7 @@ examples.}
 }}
 }
 \description{
-Builds package documentation with the \pkg{pkgdown} package.
+Styles a R package using \code{\link[styler:style_pkg]{styler::style_pkg()}}
 }
 \seealso{
 Other steps: \code{\link{step_add_to_drat}},
