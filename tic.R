@@ -8,5 +8,6 @@ if (ci_has_env("BUILD_PKGDOWN")) {
 }
 
 get_stage("deploy") %>%
+  add_step(step_setup_ssh()) %>%
   add_code_step(styler::style_pkg()) %>%
   add_step(step_push_deploy())
