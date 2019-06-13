@@ -23,7 +23,7 @@ InstallDeps <- R6Class(
         },
         args = list(
           pkg_type = private$type,
-          repos = private_repos
+          repos = private$repos
         )
       )
     }
