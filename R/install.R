@@ -7,7 +7,6 @@ verify_install <- function(...) {
 }
 
 verify_install_one <- function(pkg_name) {
-  browser()
   # FIXME
   # workaround until renv is on CRAN
   if (pkg_name == "renv") {
