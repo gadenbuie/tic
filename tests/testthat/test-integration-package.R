@@ -16,6 +16,7 @@ test_that("integration test: package", {
       writeLines("^tic\\.R$", ".Rbuildignore")
       callr::r(
         function() {
+          tic::prepare_all_stages()
           tic::run_all_stages()
         },
         show = TRUE,
