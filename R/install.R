@@ -7,6 +7,12 @@ verify_install <- function(...) {
 }
 
 verify_install_one <- function(pkg_name) {
+  browser()
+  # FIXME
+  # workaround until renv is on CRAN
+  if (pkg_name == "renv") {
+    remotes::install_github("rstudio/renv")
+  }
   if (!package_installed(pkg_name)) {
     utils::install.packages(pkg_name)
     if (!package_installed(pkg_name)) {
