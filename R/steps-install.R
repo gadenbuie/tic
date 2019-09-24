@@ -10,7 +10,6 @@ InstallDeps <- R6Class(
 
     prepare = function() {
       verify_install("remotes")
-      verify_install("renv")
     },
 
     run = function() {
