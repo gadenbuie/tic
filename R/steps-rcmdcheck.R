@@ -34,6 +34,11 @@ RCMDcheck <- R6Class(
     },
 
     run = function() {
+
+      # We need to explicitly install `rcmdcheck` into the renv env
+      # renv itself is installed in the prepare function
+      renv::install("rcmdcheck")
+
       # Don't include vignettes if --no-build-vignettes is included
       if ("--no-build-vignettes" %in% private$args) {
         cat("^vignettes$\n", file = ".Rbuildignore", append = TRUE)
@@ -78,6 +83,7 @@ RCMDcheck <- R6Class(
 
     prepare = function() {
       verify_install("rcmdcheck")
+      verify_install("renv")
       super$prepare()
     }
   ),
