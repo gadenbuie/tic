@@ -38,14 +38,17 @@ RCMDcheck <- R6Class(
       # We need to explicitly install `rcmdcheck` into the renv env
       # renv itself is installed in the prepare function
 
-      cat("rcmdcheck NOW")
-
-      print(getwd())
-
-      renv::init(bare = TRUE)
-      renv::consent(provided = TRUE)
+      renv::init(bare = TRUE, settings = list(external.libraries = "/usr/local/R/library/site-library"))
       renv::install()
-      renv::install("rcmdcheck")
+
+      # remove last two lines from .Rbuildignore written by renv to make R CMD build working
+      foo = readLines(".Rbuildignore")
+      foo = foo[-((length(foo)-2):length(foo))]
+      writeLines(foo, ".Rbuildignore")
+      rm(foo)
+
+      # dont include renv library during R CMD build
+      cat("^renv/library\n^renv/settings\n", file = ".Rbuildignore", append = TRUE)
 
       # Don't include vignettes if --no-build-vignettes is included
       if ("--no-build-vignettes" %in% private$args) {
