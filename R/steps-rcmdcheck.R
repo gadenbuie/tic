@@ -38,7 +38,7 @@ RCMDcheck <- R6Class(
       # We need to explicitly install `rcmdcheck` into the renv env
       # renv itself is installed in the prepare function
 
-      renv::init(bare = TRUE, settings = list(external.libraries = "/usr/local/R/library/site-library"))
+      renv::init(bare = TRUE, settings = list(external.libraries = "/usr/local/lib/R/site-library"))
       renv::install()
 
       # remove last two lines from .Rbuildignore written by renv to make R CMD build working
