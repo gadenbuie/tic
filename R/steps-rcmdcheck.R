@@ -37,6 +37,11 @@ RCMDcheck <- R6Class(
 
       # We need to explicitly install `rcmdcheck` into the renv env
       # renv itself is installed in the prepare function
+
+      cat("rcmdcheck NOW")
+
+      print(getwd())
+
       renv::init(bare = TRUE)
       renv::consent(provided = TRUE)
       renv::install()
