@@ -20,6 +20,7 @@ test_that("integration test: package failure", {
         callr::r(
           function() {
             tic::prepare_all_stages()
+            tic::install()
             tic::run_all_stages()
           },
           show = TRUE,
