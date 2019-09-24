@@ -22,8 +22,6 @@ InstallDeps <- R6Class(
           dependencies = TRUE, repos = private$repos, build = FALSE
         )
       )
-      renv::init()
-      renv::install()
       }
   ),
 
