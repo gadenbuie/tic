@@ -15,7 +15,7 @@ InstallDeps <- R6Class(
     run = function() {
       # https://github.com/r-lib/remotes/pull/369
       withr::with_options(
-        c(pkgType = private$type),
+        c(pkgType = "both"),
         remotes::install_deps(
           # https://github.com/r-lib/remotes/pull/386
           dependencies = TRUE, repos = private$repos, build = FALSE
