@@ -125,6 +125,9 @@ SetupPushDeploy <- R6Class(
       message("Setting branch name to ", private$branch)
       private$git$cmd("checkout", "-B", private$branch)
 
+      message("Setting upstream branch ", private$branch)
+      private$git$cmd("branch", "-u", sprintf("upstream/%s", private$branch))
+
       if (!private$orphan) {
         message("Fetching from remote ", remote_name)
         tryCatch(
