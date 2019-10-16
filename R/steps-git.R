@@ -278,7 +278,9 @@ DoPushDeploy <- R6Class(
       local <- git2r_head(private$git$get_repo())
       upstream <- git2r::branch_get_upstream(local)
       if (is.null(upstream)) {
-        message("No upstream branch found")
+        message("No upstream branch found. Printing 'local' and 'upstream' information for debugging.")
+        cat(sprintf("Local: %s", local))
+        cat(sprintf("Upstream: %s", upstream))
         return(TRUE)
       }
 
