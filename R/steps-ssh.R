@@ -197,7 +197,7 @@ SetupSSH <- R6Class(
     },
 
     run = function() {
-      private$install_ssh_keys$run()
+      #private$install_ssh_keys$run()
       private$add_to_known_hosts$run()
       private$test_ssh$run()
     },

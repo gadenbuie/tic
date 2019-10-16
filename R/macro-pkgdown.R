@@ -71,7 +71,7 @@ do_pkgdown <- function(...,
     #' 1. [step_setup_push_deploy()] in the `"before_deploy"` stage
     #'    (if `deploy` is set),
     get_stage("before_deploy") %>%
-      #add_step(step_setup_ssh()) %>%
+      add_step(step_setup_ssh()) %>%
       add_step(step_setup_push_deploy(
         path = !!enquo(path),
         branch = !!enquo(branch),
