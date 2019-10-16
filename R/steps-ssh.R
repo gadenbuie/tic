@@ -80,7 +80,6 @@ InstallSSHKeys <- R6Class(
       )
       message("Writing deploy key to ", deploy_key_path)
       if (file.exists(deploy_key_path)) {
-        Sys.chmod(deploy_key_path, "600")
         message("Not overwriting key")
         return()
       } else {
