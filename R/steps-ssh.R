@@ -80,13 +80,15 @@ InstallSSHKeys <- R6Class(
       )
       message("Writing deploy key to ", deploy_key_path)
       if (file.exists(deploy_key_path)) {
-        stop("Not overwriting key", call. = FALSE)
+        Sys.chmod(deploy_key_path, "600")
+        return("Not overwriting key", call. = FALSE)
+      } else {
+        writeLines(
+          rawToChar(openssl::base64_decode(Sys.getenv(name))),
+          deploy_key_path
+        )
+        Sys.chmod(deploy_key_path, "600")
       }
-      writeLines(
-        rawToChar(openssl::base64_decode(Sys.getenv(name))),
-        deploy_key_path
-      )
-      Sys.chmod(deploy_key_path, "600")
     },
 
     prepare = function() {
@@ -197,7 +199,7 @@ SetupSSH <- R6Class(
     },
 
     run = function() {
-      #private$install_ssh_keys$run()
+      private$install_ssh_keys$run()
       private$add_to_known_hosts$run()
       private$test_ssh$run()
     },
